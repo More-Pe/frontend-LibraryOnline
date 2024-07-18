@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 
 export const Register = () => {
   const [credentials, setcredentials] = useState(
@@ -18,7 +19,7 @@ export const Register = () => {
     ))
   }
   function register(){
-    console.log('login');
+    console.log('register');
     console.log(credentials);
   }
 	return (
@@ -42,8 +43,8 @@ export const Register = () => {
       </div>
 			<input
 				type="button"
-				value="Login"
-        onClick={login}
+				value="Register"
+        onClick={register}
 			/>
 		</>
 	);
