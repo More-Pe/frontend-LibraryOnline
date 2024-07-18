@@ -1,9 +1,9 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Login } from '../../components/Login/Login'
+import { Login } from '../../views/Login/Login'
 import { Home } from '../Home/Home'
 import { NotFound } from '../../components/NotFound/NotFound'
-import { Register } from '../../components/Register/Register'
+import { Register } from '../../views/Register/Register'
 import { Services } from '../../components/Services/Services'
 export const Body = () => {
   return (

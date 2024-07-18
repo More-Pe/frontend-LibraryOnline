@@ -10,9 +10,9 @@ export const Header = () => {
   return (
     <>
     <ul>
-        <div onClick={ ()=> navigate("/login") }>Login</div>
-        <div onClick={ ()=> navigate("/register")} >Register </div>
         <CSurfer path="/" content="Home"/>
+        <CSurfer path="/login" content="Login"/>
+        <CSurfer path="/register" content="Register"/>
         <CSurfer path="/services" content="Services"/>
     </ul>
     </>
