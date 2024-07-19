@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CSurfer } from '../CSurfer/CSurfer';
 
@@ -14,6 +13,7 @@ export const Header = () => {
         <CSurfer path="/login" content="Login"/>
         <CSurfer path="/register" content="Register"/>
         <CSurfer path="/services" content="Services"/>
+        <CSurfer path="/books" content="Books"/>
     </ul>
     </>
   )
