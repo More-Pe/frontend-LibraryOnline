@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { CInput } from '../CInput/CInput';
 import { RegisterUser } from '../../apiCalls/apiCalls';
 import { useNavigate } from 'react-router-dom';
 
@@ -39,26 +40,27 @@ export const CRegister = () => {
 			<h1>Register</h1>
 			<div>
 				{/* <label htmlFor="email">Email </label> */}
-				<input
+				<CInput
 					type='email'
 					name='email'
 					placeholder='Email'
-					onChange={handleChange}
+					emitFunction={handleChange}
 				/>
 			</div>
 			<div>
 				{/* <label htmlFor="password">Password </label> */}
-				<input
+				<CInput
 					type='password'
 					name='password'
 					placeholder='Password'
-					onChange={handleChange}
+					emitFunction={handleChange}
 				/>
 			</div>
-			<input
+			<CInput
 				type='button'
+				name="r-button"
 				value='Register'
-				onClick={register}
+				clickFunction={register}
 			/>
 		</>
 	);

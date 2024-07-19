@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { CInput } from '../CInput/CInput.jsx'
+import { LoginUser } from '../../apiCalls/apiCalls.js';
+import { useNavigate } from 'react-router-dom';
 
 export const CLogin = () => {
+	const navigate = useNavigate();
 	const [credentials, setCredentials] = useState({
 		email: "",
 		password: "",
@@ -15,9 +18,19 @@ export const CLogin = () => {
 			[e.target.name]: e.target.value, //se ponen corchetes para indicar que esa propiedad es dinámica y cambia
 		}));
 	}
-	function login() {
-		console.log('login');
-		console.log(credentials);
+	async function login() {
+		try {
+			console.log(credentials);
+			const response = await LoginUser(credentials); // guarda la repsuesta en una variale
+			if (response.success) {
+				navigate('/users/myprofile');
+			} else {
+				alert(response.message)
+			}
+			
+		} catch (error) {
+			console.log(error);
+		}
 	}
 	return (
 		<>
@@ -27,7 +40,7 @@ export const CLogin = () => {
 					type="email"
 					name="email"
 					placeholder="Email"
-					emitFuntion={handleChange}
+					emitFunction={handleChange}
 				/>
 			</div>
 			<div>
