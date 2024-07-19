@@ -1,7 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import { RegisterUser } from '../../apiCalls/apiCalls';
+import { useNavigate } from 'react-router-dom';
 
-export const Register = () => {
+export const CRegister = () => {
+	const navigate = useNavigate();
+
 	const [credentials, setCredentials] = useState({
 		email: '',
 		password: '',
@@ -14,28 +18,22 @@ export const Register = () => {
 			[e.target.name]: e.target.value, //la propiedad [] es dinamica
 		}));
 	};
-	const register = async () => {
-		console.log('Register');
-		console.log(credentials);
-		//validar la data que voy a enviar
-		//una vez si es valida vamos a llamar la BD mediante la API
+	async function register() {
 		try {
-			const request = await fetch('http://localhost:4000/api/auth/register', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(credentials),
-			});
-			const result = await request.json();
-			console.log(result);
+			console.log(credentials);
+			const response = await RegisterUser(credentials); // guarda la repsuesta en una variale
+
+
+			if (response.success) {
+				navigate('/login');
+			} else {
+				alert(response.message)
+			}
+			
 		} catch (error) {
 			console.log(error);
 		}
-		// La api puede devolver OK o NOT OK
-		// Si la API devuelve OK ->
-		// Si la API devuelve false  -> res.status(500)
-	};
+	}
 	return (
 		<>
 			<h1>Register</h1>
