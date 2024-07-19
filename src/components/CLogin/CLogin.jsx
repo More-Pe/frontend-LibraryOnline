@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { CInput } from '../CInput/CInput';
+import { CInput } from '../CInput/CInput.jsx'
 
-export const Login = () => {
+export const CLogin = () => {
 	const [credentials, setCredentials] = useState({
 		email: "",
 		password: "",

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { CCard } from '../../components/CCard/CCard';
 
 export const Books = () => {
 	const [books, setBooks] = useState([]); //cuidado, esto es solo para arrays
@@ -22,12 +23,9 @@ export const Books = () => {
 
 	return (
 		<>
-			{books.map((book) => (
-				<div key={book.id} className='card'>
-					<h1> {book.title} </h1>
-					<p> {book.description}</p>
-				</div> //está todo envuelto en un div porque puede renderizar un solo elemento
+			{books.map((book, index) => (
+				<CCard key={index} name={book.title} description={book.description} cardId={book.id} />
 			))}
 		</>
 	);
-};
+}; 
