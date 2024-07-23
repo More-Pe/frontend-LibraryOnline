@@ -174,7 +174,7 @@ export const Body = () => {
 2. Go to the DB folder and elevete it as `npm run dev`
 3. Go back to the React project and ensure the server is on there as well `npm run dev`
 4. In the library project install cors with `npm install cors`
-5. Install the dependencies as well `npm i types@cors` and import it in server.ts
+5. Install the dependencies as well `npm install --save-dev @types/cors` and import it in server.ts
 
 ```js
 import cors from 'cors';
