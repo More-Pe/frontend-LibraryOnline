@@ -178,7 +178,10 @@ export const Body = () => {
 
 ```js
 import cors from 'cors';
-app.use(cors());
+app.use(cors({origin: 'http://localhost:5173', // request origin URL
+	methods: 'GET,HEAD,PUT,POST,DELETE', // allowed methods in the request
+	credentials: true, // allows session cookies from browser to pass through
+}));
 ```
 
 --- IN REACT PROJECT ---
