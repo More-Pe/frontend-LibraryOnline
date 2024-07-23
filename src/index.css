@@ -11,8 +11,16 @@
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-space-betwwen {
+  justify-content: space-between;
 }

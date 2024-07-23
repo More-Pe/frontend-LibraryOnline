@@ -5,6 +5,8 @@ import { CCard } from '../../components/CCard/CCard';
 
 export const Books = () => {
 	const [books, setBooks] = useState([]); //cuidado, esto es solo para arrays
+	//recuperamos nuestro token y sus datos de local storage
+	const passport = JSON.parse(localStorage.getItem("passport"))
 
 	useEffect(() => {
 		console.log('UseEffect');

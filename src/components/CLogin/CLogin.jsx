@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { CInput } from '../CInput/CInput.jsx'
 import { LoginUser } from '../../apiCalls/apiCalls.js';
 import { useNavigate } from 'react-router-dom';
-
+import { jwtDecode } from 'jwt-decode'
 export const CLogin = () => {
 	const navigate = useNavigate();
 	const [credentials, setCredentials] = useState({
@@ -21,8 +21,14 @@ export const CLogin = () => {
 	async function login() {
 		try {
 			console.log(credentials);
-			const response = await LoginUser(credentials); // guarda la repsuesta en una variale
+			const response = await LoginUser(credentials); // guarda la respuesta en una variale
 			if (response.success) {
+				const decodedToken = jwtDecode(response.token)
+				const passport = {
+					token: response.token,
+					tokenData: decodedToken
+				}
+				localStorage.setItem('passport', JSON.stringify(passport))
 				navigate('/users/myprofile');
 			} else {
 				alert(response.message)
