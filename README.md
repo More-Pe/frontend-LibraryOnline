@@ -21,6 +21,7 @@
 - **src/App.css:** Styles specific to the App component.
 - **package.json:** Project information and dependencies.
 - **README.md:** Project documentation.
+- **Body.jsx** This is a file created by us where we will put the front-end routes.
 
 You can expand and modify this structure according to the needs of your project.
 
@@ -224,13 +225,26 @@ async function register() {
         }
 ```
 ### HOW DECODE TOKEN IN FRONTEND
-npm install jwt-decode
+1. Install jwt-decode:
+`$ npm install jwt-decode`
 
-importarlo en el Login
+2. Import and Use in Login Component:
+In your login component, import jwt-decode and use it to decode the JWT token received from the backend:
 
-const decode = jwtDecode(response.token)
+```import jwtDecode from 'jwt-decode';
 
+// After receiving the token in your login function
+const decode = jwtDecode(response.token);```
 
-PARA HACER UNA NUEVA VISTA
-rafc
-y luego lo importo en el Body.jsx
+### TO CREATE A NEW VIEW
+1. Generate a Component Skeleton Using rafc:
+Use the rafc (React Arrow Function Component) snippet to create a new React component quickly.
+
+2. Import the New Component into Body.jsx:
+After creating the new component, import it into your Body.jsx or wherever you need to use it.
+```
+import NewComponent from './path/to/NewComponent'; // Adjust the path as needed
+
+// Use the component within your Body.jsx or other relevant file
+```
+
