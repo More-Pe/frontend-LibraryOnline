@@ -1,4 +1,4 @@
-##STEPS TO CREATE A NEW PROJECT REACT+JAVASCRIPT WITH VITE
+## STEPS TO CREATE A NEW PROJECT REACT+JAVASCRIPT WITH VITE
 
 1. Go to the folder where you want to create the folder containing your project and open a terminal there:
    `$ npm create vite@latest your-project-name --template react`.
@@ -12,8 +12,44 @@
 3. Then you can open your project in your IDE and start a repository:
    `$git init`
 4. Don't forget configurate the .gitignore!
+5. These files form the basic structure of a React project with Vite:
+- **index.html:** Main HTML template.
+- **vite.config.js:** Vite configuration.
+- **src/main.jsx:** React application entry point. This is where the root component (App) is mounted in the DOM of the browser.
+- **src/App.jsx:** Root component of the application. Here you define the structure and content of your application. You can include other components inside the App, manage local state, and define the main logic of the user interface.
+- **src/index.css:** Global styles.
+- **src/App.css:** Styles specific to the App component.
+- **package.json:** Project information and dependencies.
+- **README.md:** Project documentation.
 
-EN EL INDEX SE RENDERIZA TODA LA APP
+You can expand and modify this structure according to the needs of your project.
+
+## STEPS TO CREATE A NEW PROJECT REACT+JAVASCRIPT WITH VITE
+
+1. Go to the folder where you want to create the folder containing your project and open a terminal there:
+   `$ npm create vite@latest your-project-name --template react`.
+   ✔ Package name: your-project-name
+   ✔ Select a framework: ‘ React
+   ✔ Select a variant: ‘ JavaScript + SWC
+2. Then execute the commands that the terminal says:
+   `$ cd name-from-your-project`
+   `$ npm install`
+   `$ npm run dev`
+3. Then you can open your project in your IDE and start a repository:
+   `$git init`
+4. Don't forget configurate the .gitignore!
+5. These files form the basic structure of a React project with Vite:
+- **index.html:** Main HTML template.
+- **vite.config.js:** Vite configuration.
+- **src/main.jsx:** React application entry point. This is where the root component (App) is mounted in the DOM of the browser.
+- **src/App.jsx:** Root component of the application. Here you define the structure and content of your application. You can include other components inside the App, manage local state, and define the main logic of the user interface.
+- **src/index.css:** Global styles.
+- **src/App.css:** Styles specific to the App component.
+- **package.json:** Project information and dependencies.
+- **README.md:** Project documentation.
+
+You can expand and modify this structure according to the needs of your project.
+
 
 ## STEPS TO FOLLOW WHEN USING REACT ROUTE DOM
 
