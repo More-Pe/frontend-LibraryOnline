@@ -190,3 +190,8 @@ npm install jwt-decode
 importarlo en el Login
 
 const decode = jwtDecode(response.token)
+
+
+PARA HACER UNA NUEVA VISTA
+rafc
+y luego lo importo en el Body.jsx

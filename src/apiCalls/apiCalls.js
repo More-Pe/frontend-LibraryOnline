@@ -27,3 +27,16 @@ export const LoginUser = async (credentials) => {
 
 	return result;
 };
+
+//en el fetch va la url y el método del back
+export const getProfile = async (token) => {
+	const response = await fetch(`${URL}/profile`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`
+		},
+	});
+
+	return await response.json();
+}

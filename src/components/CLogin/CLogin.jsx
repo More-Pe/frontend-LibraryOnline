@@ -29,7 +29,7 @@ export const CLogin = () => {
 					tokenData: decodedToken
 				}
 				localStorage.setItem('passport', JSON.stringify(passport))
-				navigate('/users/myprofile');
+				// navigate('/users/myprofile');
 			} else {
 				alert(response.message)
 			}
