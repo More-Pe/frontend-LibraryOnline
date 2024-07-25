@@ -258,3 +258,5 @@ Edito el CInput para que tenga una propiedad ClassName
 En el profile agregamos funciones: editButtonHandler, 
 en apiCalls hago una función para mandar al backend los datos editados en perfil
 Luego en backend como no estaba hecho, se crea el controlador y el endpoint para editar usuario.
+Añadir vista de Admin.
+En el Body agrego la ruta Admin y la lógica en el try.

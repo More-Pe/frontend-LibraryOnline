@@ -51,3 +51,15 @@ export const updateProfile = async (data, token) => {
 	})
 	return await response.json();
 }
+
+export const getAllUsers = async (token) => {
+	const response = await fetch (`${URL}/users`,{
+		method: "GET",
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`
+		},
+	})
+	return await response.json();
+}
+

@@ -16,7 +16,7 @@ export const Profile = () => {
     name: "",
     email: "",
   });
-  const [editting, setEditting] = useState(false);
+  const [editing, setEditing] = useState(false);
 
   const passport = JSON.parse(localStorage.getItem("passport"));
   const token = passport.token
@@ -41,7 +41,7 @@ export const Profile = () => {
       name: profileData.name,
       email: profileData.email,
     });
-    setEditting(!editting);
+    setEditing(!editing);
   };
 
   const editInputHandler = (e) => {
@@ -53,33 +53,38 @@ export const Profile = () => {
   };
 
   useEffect(() => {
-    console.log("estamos editando: ", editting);
-  }, [editting]);
+    console.log("estamos editando: ", editing);
+  }, [editing]);
 
   const confirmButtonHandler = async () => {
     const response = await updateProfile (editData, passport.token)
-    console.log(response)
+    // console.log(response)
+    if (response.success){
+      const newData = await getProfile(token)
+      setProfileData(newData.data)
+      setEditing(!editing)
+    }
   }
 
   return (
     <>
       <h2>Hola, somos profile</h2>
-      <p className={editting ? "hidden" : ""}>
+      <p className={editing ? "hidden" : ""}>
         Name: {profileData.name ? profileData.name : "No Disponible"}
       </p>
       <CInput
         type="text"
         name="name"
         placeholder="Name: "
-        className={editting ? "" : "hidden"}
+        className={editing ? "" : "hidden"}
         emitFunction={editInputHandler}
       />
-      <p className={editting ? "hidden" : ""}>Email: {profileData.email}</p>
+      <p className={editing ? "hidden" : ""}>Email: {profileData.email}</p>
       <CInput
         type="email"
         name="email"
         placeholder={editData.email}
-        className={editting ? "" : "hidden"}
+        className={editing ? "" : "hidden"}
         emitFunction={editInputHandler}
       />
       <CInput

@@ -7,8 +7,16 @@ import { Register } from '../Register/Register'
 import { Services } from '../../components/Services/Services'
 import { Books } from '../Books/Books'
 import { Profile } from '../Profile/Profile'
+import { Admin } from '../Admin/Admin'
 
 export const Body = () => {
+
+  const passport = JSON.parse(localStorage.getItem('passport'));
+  let role = null;
+  if(passport){
+    role = passport.tokenData.role
+  }
+
   return (
     <>
     <Routes>
@@ -19,6 +27,10 @@ export const Body = () => {
         <Route path="/services" element={<Services/>}/>
         <Route path="/books" element={<Books/>}/>
         <Route path="/profile" element={<Profile/>}/>
+
+        {
+        role === 'admin' && <Route path="/admin" element={<Admin/>}/>
+        }
 
     </Routes>
     </>
