@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { CInput } from '../../components/CInput/CInput';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getProfile, updateProfile } from '../../apiCalls/apiCalls';
+import { getProfile, updateProfile } from '../../Services/apiCalls';
 import './Profile.css';
 
 export const Profile = () => {

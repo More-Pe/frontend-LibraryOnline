@@ -1,12 +1,11 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Login } from '../Login/Login'
-import { Home } from '../Home/Home'
-import { NotFound } from '../../components/NotFound/NotFound'
-import { Register } from '../Register/Register'
-import { Services } from '../../components/Services/Services'
-import { Books } from '../Books/Books'
-import { Profile } from '../Profile/Profile'
+import { Login } from '../Login/Login.jsx'
+import { Home } from '../Home/Home.jsx'
+import { NotFound } from '../../components/NotFound/NotFound.jsx'
+import { Register } from '../Register/Register.jsx'
+import { Books } from '../Books/Books.jsx'
+import { Profile } from '../Profile/Profile.jsx'
 import { Admin } from '../Admin/Admin'
 
 export const Body = () => {
@@ -24,7 +23,6 @@ export const Body = () => {
         <Route path="/" element={<Home/> }/>
         <Route path="/login" element={<Login/> }/>
         <Route path="/register" element={<Register/> }/>
-        <Route path="/services" element={<Services/>}/>
         <Route path="/books" element={<Books/>}/>
         <Route path="/profile" element={<Profile/>}/>
 

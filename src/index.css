@@ -21,6 +21,6 @@ body {
   display: flex;
 }
 
-.justify-space-betwwen {
+.justify-space-between {
   justify-content: space-between;
 }
