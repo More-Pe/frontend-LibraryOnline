@@ -3,56 +3,97 @@ import { useState } from 'react';
 import { CInput } from '../../components/CInput/CInput';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getProfile } from '../../apiCalls/apiCalls';
+import { getProfile, updateProfile } from '../../apiCalls/apiCalls';
+import './Profile.css';
 
 export const Profile = () => {
+	const [profileData, setProfileData] = useState({
+		name: '',
+		is_active: null,
+		created_at: '',
+		updated_at: '',
+	}); const [editData, setEditData] = useState({
+    name: "",
+    email: "",
+  });
+  const [editting, setEditting] = useState(false);
 
-    const [profileData, setProfileData] = useState({
-        name: "",
-        is_active: null,
-        created_at: "",
-        updated_at: ""
-    })
+  const passport = JSON.parse(localStorage.getItem("passport"));
+  const token = passport.token
 
-	const passport = JSON.parse(localStorage.getItem('passport'));
-    let token;
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (!passport) {
-          navigate("/login");
-        }
-        else {
-          const bringMyProfile = async () => {
-            const response = await getProfile(passport.token);
-            setProfileData(response.data);
-            console.log(response)
-          }
-          bringMyProfile()
-        }
-      }, []);
-    
-
-    const logout = () => {
-        localStorage.removeItem('passport');
-        console.log("Byeeeeeeee");
-
+  useEffect(() => {
+    if (!passport) {
+      navigate("/login");
+    } else {
+      const bringMyProfile = async () => {
+        const response = await getProfile(passport.token);
+        setProfileData(response.data);
+        console.log(response);
+      };
+      bringMyProfile();
     }
+  }, []);
 
+  const editButtonHandler = () => {
+    setEditData({
+      name: profileData.name,
+      email: profileData.email,
+    });
+    setEditting(!editting);
+  };
 
+  const editInputHandler = (e) => {
+    setEditData({
+      ...editData,
+      [e.target.name]: e.target.value,
+    });
+    console.log("estamos editando en el input");
+  };
 
-	// const email = passport?.tokenData.email;
+  useEffect(() => {
+    console.log("estamos editando: ", editting);
+  }, [editting]);
 
-	return(
+  const confirmButtonHandler = async () => {
+    const response = await updateProfile (editData, passport.token)
+    console.log(response)
+  }
+
+  return (
     <>
-    <p>Name: {profileData.name}</p>
-    <p>Active?: {profileData.is_active ? 'Yes' : 'No'}</p>
-    <p>Created at: {profileData.created_at}</p>
-    <p>Updated at: {profileData.updated_at}</p>
-    <CInput type="button" name="logout" clickFunction={logout} value="Logout"/>
-
+      <h2>Hola, somos profile</h2>
+      <p className={editting ? "hidden" : ""}>
+        Name: {profileData.name ? profileData.name : "No Disponible"}
+      </p>
+      <CInput
+        type="text"
+        name="name"
+        placeholder="Name: "
+        className={editting ? "" : "hidden"}
+        emitFunction={editInputHandler}
+      />
+      <p className={editting ? "hidden" : ""}>Email: {profileData.email}</p>
+      <CInput
+        type="email"
+        name="email"
+        placeholder={editData.email}
+        className={editting ? "" : "hidden"}
+        emitFunction={editInputHandler}
+      />
+      <CInput
+        type="button"
+        name="edit"
+        value="Edit"
+        clickFunction={editButtonHandler}
+      />
+            <CInput
+        type="button"
+        name="save"
+        value="Save"
+        clickFunction={confirmButtonHandler}
+      />
     </>
-
-    );
+  );
 };

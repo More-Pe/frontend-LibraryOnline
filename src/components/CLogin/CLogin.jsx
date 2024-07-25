@@ -4,6 +4,7 @@ import { CInput } from '../CInput/CInput.jsx'
 import { LoginUser } from '../../apiCalls/apiCalls.js';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode'
+import { isTokenValid } from '../../utils/functions.js';
 export const CLogin = () => {
 	const navigate = useNavigate();
 	const [credentials, setCredentials] = useState({
@@ -29,7 +30,7 @@ export const CLogin = () => {
 					tokenData: decodedToken
 				}
 				localStorage.setItem('passport', JSON.stringify(passport))
-				// navigate('/users/myprofile');
+				isTokenValid(decodedToken.exp)
 			} else {
 				alert(response.message)
 			}

@@ -7,7 +7,8 @@ export const CInput = (
         placeholder="",
         emitFunction,
         clickFunction,
-        value
+        value,
+        className
     }
 ) => {
 	return (
@@ -19,6 +20,7 @@ export const CInput = (
                 onChange={emitFunction}
                 onClick={clickFunction}
                 value={value}
+                className={className}
 			/>
 		</>
 	);

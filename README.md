@@ -247,4 +247,14 @@ import NewComponent from './path/to/NewComponent'; // Adjust the path as needed
 
 // Use the component within your Body.jsx or other relevant file
 ```
-
+________________________________
+Crear carpeta utls y dentro fichero funtions.js
+Crear la función para verificar en segundo plano el tiempo de validez del token
+Llamar a la función en CLogin.
+_______
+Para hacer editable el perfil de usuario
+Cambio Profile.jsx con los inputs
+Edito el CInput para que tenga una propiedad ClassName
+En el profile agregamos funciones: editButtonHandler, 
+en apiCalls hago una función para mandar al backend los datos editados en perfil
+Luego en backend como no estaba hecho, se crea el controlador y el endpoint para editar usuario.
